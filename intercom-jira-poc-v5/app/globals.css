@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   BRAND TOKENS. To rebrand, change the HSL values in this block only.
+   Format is "hue saturation% lightness%" (no commas), as shadcn/ui uses.
+   These values are an approximation of TRX's look (deep navy + brass).
+   Tip: convert an exact hex code to HSL with any online "hex to hsl" tool.
+   ========================================================================== */
+@layer base {
+  :root {
+    --primary: 213 70% 28%;            /* navy: buttons, active step, selection */
+    --primary-foreground: 0 0% 100%;
+    --brand: 36 37% 53%;               /* brass accent */
+    --brand-soft: 38 50% 93%;
+
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 42%;
+    --accent: 213 45% 94%;             /* hover tint */
+    --accent-foreground: 213 70% 22%;
+    --border: 220 13% 91%;
+    --input: 220 13% 82%;
+    --ring: 213 70% 28%;
+
+    --destructive: 5 76% 40%;          /* problem / bug */
+    --destructive-foreground: 0 0% 100%;
+    --destructive-soft: 6 93% 97%;
+    --success: 157 90% 24%;            /* feedback / success */
+    --success-soft: 152 81% 96%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: radial-gradient(900px 320px at 50% -120px, hsl(var(--brand) / 0.14), transparent 70%);
+    background-repeat: no-repeat;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation-duration: 0.01ms !important;
+  }
+}
